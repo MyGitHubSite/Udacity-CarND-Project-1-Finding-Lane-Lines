@@ -25,18 +25,13 @@ The goals / steps of this project are the following:
 
 My pipeline consisted of seven (7) steps: 
 
-  1. I converted the images to grayscale, then 
-  2. I blurred the images using the CV2 gaussian blur function (kernel_size=11) to smooth out the rough edges for the lines in the images. 
-  3. I used the cv2.Canny() function to find the Canny edges for pixel gradients with low_threshold=75 and high_threshold=150.  
-  4. I worked out a region of interest in the video stream to narrow in on the left and right lanes on the road.  From the region of interest in the video frames I created a masked images that showed the canny edges.  
-
-  5. I calculated the Probabilistic Hough Transforms on the canny edges using parameters: 
-rho=1, theta=np.pi/180, threshold=30 , min_line_len=15, max_line_gap=5.  The Hough parameters were found by trial and error.  
-
-They helped filter out objects that were not related to lane lines like: trash in the road, others cars, road reflectors, 
-and stray markings on the roads.  Also, they helped to filter out lane markings which were not suitable for further processing.  
-
-  6. Using the hough lines I split them into left and right lines corresponding to left lane and right lane lines.  From the lines I drew left and right road lanes on the masked images.  
+  1. I converted the images to gray scale in order to find road edges in the following steps.
+  2. I blurred the images using the CV2 gaussian blur function (kernel_size=11) to smooth out the rough edges in the gray scale images. 
+  3. I used the cv2.Canny() function to find the Canny edges for pixel gradients with low_threshold=75 and high_threshold=150 in the blurred images.  
+  4. I worked out a region of interest in the video stream to narrow in on the left and right lanes on the road.  From the region of interest in the video frames I created masked images that showed the Canny edges for just in the region of interest where the lane lines would be.
+  5. I calculated the Probabilistic Hough Transforms on the Canny edges to detect lines using parameters: 
+rho=1, theta=np.pi/180, threshold=30 , min_line_len=15, max_line_gap=5.  The Hough parameters were found by trial and error to help balance having too many lines that were't credible and not having enough lines to create a line extrapolation in next step.  The parameters helped filter out objects that were not related to lane lines like: trash in the road, others cars, road reflectors, and stray markings on the roads.  Also, they helped to filter out lane markings which were not suitable for further processing.  
+  6. Using the Hough lines I split them into left and right lines corresponding to left lane and right lane lines using their  slopes.  From the Hough line (x,y) points I drew left and right road lanes onto the masked images.  
 
 My draw_lines() function consisted of three methods: 
 
