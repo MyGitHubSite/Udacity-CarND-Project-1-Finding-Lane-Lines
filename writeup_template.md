@@ -15,9 +15,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: (./examples/grayscale.jpg) "Grayscale"
 
----
+--
 
 ### Reflection
 
@@ -52,23 +52,23 @@ Seventh, and finally, I overlayed the lane lines onto the original; frame images
 
 Here is an example of the pipeline in images:
 
-![alt text][./master/test_videos_output/1_1_image.jpg]
-![alt text][1_2_gray_image.jpg]
-![alt text][1_3_blurred_image.jpg]
-![alt text][1_4_canny_image.jpg]
-![alt text][1_5_masked_image.jpg]
-![alt text][1_6_line_img.jpg]
-![alt text][1_7_overlay_image.jpg]
+![image](test_videos_output/1_1_image.jpg)
+![gray image](test_videos_output/1_2_gray_image.jpg)
+![blurred image](test_videos_output/1_3_blurred_image.jpg)
+![alt text](test_videos_output/1_4_canny_image.jpg)
+![alt text](test_videos_output/1_5_masked_image.jpg)
+![alt text](test_videos_output/1_6_line_img.jpg)
+![alt text](test_videos_output/1_7_overlay_image.jpg)
 
 Finally, here are the full videos with the pipeline applied.
 
 White Markings:
 
-![alt text][solidWhiteRight_1-30-15-5-3.mp4]
+![alt text](test_videos_output/solidWhiteRight_1-30-15-5-3.mp4)
 
 Yellow Markings:
 
-![alt text][solidWhiteRight_1-30-15-5-3.mp4]
+![alt text](test_videos_output/solidWhiteRight_1-30-15-5-3.mp4)
 
 ### 2. Identify potential shortcomings with your current pipeline
 
