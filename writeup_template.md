@@ -27,17 +27,16 @@ My pipeline consisted of seven (7) steps:
 
   1. I converted the images to grayscale, then 
   2. I blurred the images using the CV2 gaussian blur function (kernel_size=11) to smooth out the rough edges for the lines in the images. 
-  3. Next, I found the canny edges for pixel gradients with low_threshold=75 and high_threshold=150.  
-  4. Fourth, I worked out a region of interest in the video stream to narrow in on the left and right lanes on the road.  From the region of interest 
-in the video frames I created a masked images that showed the canny edges.  
+  3. I used the cv2.Canny() function to find the Canny edges for pixel gradients with low_threshold=75 and high_threshold=150.  
+  4. I worked out a region of interest in the video stream to narrow in on the left and right lanes on the road.  From the region of interest in the video frames I created a masked images that showed the canny edges.  
 
-5. I calculated the Probabilistic Hough Transforms on the canny edges using parameters: 
+  5. I calculated the Probabilistic Hough Transforms on the canny edges using parameters: 
 rho=1, theta=np.pi/180, threshold=30 , min_line_len=15, max_line_gap=5.  The Hough parameters were found by trial and error.  
+
 They helped filter out objects that were not related to lane lines like: trash in the road, others cars, road reflectors, 
 and stray markings on the roads.  Also, they helped to filter out lane markings which were not suitable for further processing.  
 
-Sixth, using the hough lines I split them into left and right lines corresponding to left lane and right lane lines.  
-From the lines I drew left and right road lanes on the masked images.  
+  6. Using the hough lines I split them into left and right lines corresponding to left lane and right lane lines.  From the lines I drew left and right road lanes on the masked images.  
 
 My draw_lines() function consisted of three methods: 
 
@@ -49,27 +48,27 @@ I wanted to extrapolate the line data to draw solid lane lines on the roads so I
 I found that (3) the weighted average approach gave the most stable lines probably because it gave more weight to longer 
 (and more credible) lines rather than giving equal weight to each point in (2) the linear regression approach.
 
-Seventh, and finally, I overlayed the lane lines onto the original; frame images using the cv2.addWeighted() function.
+  7. finally, I overlayed the lane lines onto the original; frame images using the cv2.addWeighted() function.
 
 Here is an example of the pipeline in images:
 
-![image](test_videos_output/1_1_image.jpg)
-![gray image](test_videos_output/1_2_gray_image.jpg)
-![blurred image](test_videos_output/1_3_blurred_image.jpg)
-![alt text](test_videos_output/1_4_canny_image.jpg)
-![alt text](test_videos_output/1_5_masked_image.jpg)
-![alt text](test_videos_output/1_6_line_img.jpg)
-![alt text](test_videos_output/1_7_overlay_image.jpg)
+![image](test_videos_output/1_1_image.jpg) "Original Image"
+![gray image](test_videos_output/1_2_gray_image.jpg) "Grayscale Image"
+![blurred image](test_videos_output/1_3_blurred_image.jpg) "Blurred Image"
+![Canny Edges](test_videos_output/1_4_canny_image.jpg) "Canny Edges"
+![Masked Image](test_videos_output/1_5_masked_image.jpg) "Masked Image"
+![Line Image](test_videos_output/1_6_line_img.jpg) "Lane Lines Image"
+![Overlay Image](test_videos_output/1_7_overlay_image.jpg) "Overlay Image"
 
 Finally, here are the full videos with the pipeline applied.
 
 White Markings:
 
-![alt text](test_videos_output/solidWhiteRight_1-30-15-5-3.mp4)
+![SolidWhiteRight](test_videos_output/solidWhiteRight_1-30-15-5-3.mp4) "Solid White Right"
 
 Yellow Markings:
 
-![alt text](test_videos_output/solidYellowLeft_1-30-15-5-3.mp4)
+![SolidYellowLeft](test_videos_output/solidYellowLeft_1-30-15-5-3.mp4) "Solid Yellow Left"
 
 ### 2. Identify potential shortcomings with your current pipeline
 
