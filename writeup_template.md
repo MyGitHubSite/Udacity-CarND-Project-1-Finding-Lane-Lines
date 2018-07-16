@@ -52,7 +52,7 @@ Seventh, and finally, I overlayed the lane lines onto the original; frame images
 
 Here is an example of the pipeline in images:
 
-![alt text][./test_videos_output/1_1_image.jpg]
+![alt text][/blob/master/test_videos_output/1_1_image.jpg]
 ![alt text][1_2_gray_image.jpg]
 ![alt text][1_3_blurred_image.jpg]
 ![alt text][1_4_canny_image.jpg]
