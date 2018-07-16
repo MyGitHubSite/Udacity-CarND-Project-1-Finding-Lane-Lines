@@ -68,7 +68,7 @@ White Markings:
 
 Yellow Markings:
 
-![alt text](test_videos_output/solidWhiteRight_1-30-15-5-3.mp4)
+![alt text](test_videos_output/solidYellowLeft_1-30-15-5-3.mp4)
 
 ### 2. Identify potential shortcomings with your current pipeline
 
