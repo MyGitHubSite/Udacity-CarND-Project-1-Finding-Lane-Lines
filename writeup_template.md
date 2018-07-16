@@ -39,9 +39,10 @@ rho=1, theta=np.pi/180, threshold=30 , min_line_len=15, max_line_gap=5.  The Hou
     (2) using linear regression to find the slopes and intercepts from the raw (x,y) points.
     (3) using a weighted average of slope and intercepts from the raw (x,y) points.
 
-     I wanted to extrapolate the line data to draw solid lane lines on the roads so I used (2) and (3) to do that.  
-     I found that (3) the weighted average approach gave the most stable lines in consecutive frames probably because it 
-     gave more weight to longer (and more credible) lines rather than giving equal weight to each point in (2) the 
+     I wanted to extrapolate the line data to draw solid lane lines on the roads so I used 
+     (2) and (3) to do that.  I found that (3) the weighted average approach gave the most 
+     stable lines in consecutive frames probably because it gave more weight to longer 
+     (and more credible) lines rather than giving equal weight to each point in (2) the 
      linear regression approach.
 
   7. Finally, I overlayed the lane lines onto the original frame images using the cv2.addWeighted() function.
