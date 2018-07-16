@@ -39,18 +39,17 @@ rho=1, theta=np.pi/180, threshold=30 , min_line_len=15, max_line_gap=5.  The Hou
     (2) using linear regression to find the slopes and intercepts from the raw (x,y) points.
     (3) using a weighted average of slope and intercepts from the raw (x,y) points.
 
-      I wanted to extrapolate the line data to draw solid lane lines on the roads so I used (2) and (3) to do that.
-      I found that (3) the weighted average approach gave the most stable lines in consecutive frames probably because it gave          more weight to longer (and more credible) lines rather than giving equal weight to each point in (2) the linear regression approach.
+     I wanted to extrapolate the line data to draw solid lane lines on the roads so I used (2) and (3) to do that.  I found that (3) the weighted average approach gave the most stable lines in consecutive frames probably because it gave more weight to longer (and more credible) lines rather than giving equal weight to each point in (2) the linear regression approach.
 
   7. Finally, I overlayed the lane lines onto the original frame images using the cv2.addWeighted() function.
 
 Here is an example of the pipeline in images:
 
 ![image](test_videos_output/1_1_image.jpg) "Original Image"
-![gray image](test_videos_output/1_2_gray_image.jpg) "Grayscale Image"
-![blurred image](test_videos_output/1_3_blurred_image.jpg) "Blurred Image"
-![Canny Edges](test_videos_output/1_4_canny_image.jpg) "Canny Edges"
-![Masked Image](test_videos_output/1_5_masked_image.jpg) "Masked Image"
+![gray image](test_videos_output/1_2_gray_image.jpg) "Grayscale Image (Luminance)"
+![blurred image](test_videos_output/1_3_blurred_image.jpg) "Blurred Image (Luminance)"
+![Canny Edges](test_videos_output/1_4_canny_image.jpg) "Canny Edges (Luminance)"
+![Masked Image](test_videos_output/1_5_masked_image.jpg) "Masked Image (Luminance)"
 ![Line Image](test_videos_output/1_6_line_img.jpg) "Lane Lines Image"
 ![Overlay Image](test_videos_output/1_7_overlay_image.jpg) "Overlay Image"
 
