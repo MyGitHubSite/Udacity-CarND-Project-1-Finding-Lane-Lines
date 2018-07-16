@@ -23,14 +23,15 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of seven(7) steps: 
+My pipeline consisted of seven (7) steps: 
 
-First, I converted the images to grayscale, then I blurred the images using the CV2 gaussian blur function (kernel_size=11) 
-to smooth out the rough edges for the lines in the images. Next, I found the canny edges for pixel gradients with low_threshold=75 and high_threshold=150.  
-Fourth, I worked out a region of interest in the video stream to narrow in on the left and right lanes on the road.  From the region of interest 
+  1. I converted the images to grayscale, then 
+  2. I blurred the images using the CV2 gaussian blur function (kernel_size=11) to smooth out the rough edges for the lines in the images. 
+  3. Next, I found the canny edges for pixel gradients with low_threshold=75 and high_threshold=150.  
+  4. Fourth, I worked out a region of interest in the video stream to narrow in on the left and right lanes on the road.  From the region of interest 
 in the video frames I created a masked images that showed the canny edges.  
 
-Fifth, I calculated the Probabilistic Hough Transforms on the canny edges using parameters: 
+5. I calculated the Probabilistic Hough Transforms on the canny edges using parameters: 
 rho=1, theta=np.pi/180, threshold=30 , min_line_len=15, max_line_gap=5.  The Hough parameters were found by trial and error.  
 They helped filter out objects that were not related to lane lines like: trash in the road, others cars, road reflectors, 
 and stray markings on the roads.  Also, they helped to filter out lane markings which were not suitable for further processing.  
