@@ -76,4 +76,4 @@ Yet another shortcoming is if the video frames had another shape besides what I 
 
 A possible improvement would be to fit a polynomial curve or optimize the parameters for a curve fit if the lane lines are not straight.
 
-Another potential improvement could be to automatically readjust the region of interest and extrpolation calcualtions for different sized video frames.
+Another potential improvement could be to automatically readjust the region of interest and extrpolation calculations for different sized video frames.
